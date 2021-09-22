@@ -11,4 +11,4 @@
 - [Work 1](sketches/abstract/)
 
 Click and hold left mouse click
-<iframe src="https://jgonzalez249.github.io/programming-portfolio/sketches/abstract/" style="Width60%"></iframe>
+<iframe src="https://jgonzalez249.github.io/programming-portfolio/sketches/abstract/" style="Width80%"></iframe>
