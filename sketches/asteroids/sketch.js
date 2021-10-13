@@ -2,9 +2,8 @@ const num = 1;
 const numOfRocks = 5;
 let player;
 let bullets = [];
-let removeBullets = [];
-let enemy = [{ x: 0, y: 0, alive: true }]
-let enemies = [];
+//let enemy = [{ x: 0, y: 0, alive: true }]
+//let enemies = [];
 let asteroids = [];
 
 function setup() {
@@ -28,8 +27,17 @@ function draw() {
   player.update();
   player.wrap();
 
+  // This is for better player response than keyPressed
+  // D,A,and W keys in that order
+  if (keyIsDown(68)) player.setRotation(0.1);
+  if (keyIsDown(65)) player.setRotation(-0.1);
+  if (keyIsDown(87)) player.thrusting(true);
+
   // Draw Asteroid
   for (let i = 0; i < asteroids.length; i++) {
+    if (player.collides(asteroids[i])) {
+      console.log('Ship Destoryed')
+    }
     asteroids[i].display();
     asteroids[i].updateMovement();
     asteroids[i].wrap();
@@ -39,42 +47,27 @@ function draw() {
   for (let i = bullets.length - 1; i >= 0; i--) {
     bullets[i].display();
     bullets[i].update();
-    for (let j = asteroids.length - 1; j >= 0; j--) {
-      if (bullets[i].collides(asteroids[j])) {
-        if(asteroids[j].radius > 10){
-          let newAsteroids = asteroids[j].breakup();
-          asteroids = asteroids.concat(newAsteroids);
-        }else{
-          // Increase score
+    if (bullets[i].offscreen()) {
+      bullets.splice(i, 1);
+    } else {
+      for (let j = asteroids.length - 1; j >= 0; j--) {
+        if (bullets[i].collides(asteroids[j])) {
+          if (asteroids[j].radius > 10) {
+            let newAsteroids = asteroids[j].breakup();
+            asteroids = asteroids.concat(newAsteroids);
+          }
+          asteroids.splice(j, 1);
+          bullets.splice(i, 1);
+          break;
         }
-        asteroids.splice(j, 1);
-        bullets.splice(i, 1);
-        console.log(asteroids)
-        break;
       }
-    }
-
-    // Destory bullets when left screen
-    for (let i = removeBullets.length; i > 0; i--) {
-      bullets.splice(removeBullets[i], 1);
-      console.log(bullets);
     }
   }
 }
 
 function keyPressed() {
   if (key === ' ') {
-    console.log("FIRE!")
     bullets.push(new Bullet(player.playerPos, player.playerDir));
-  }
-  else if (key === 'd') {
-    player.setRotation(0.1);
-  }
-  else if (key === 'a') {
-    player.setRotation(-0.1);
-  }
-  else if (key === 'w') {
-    player.thrusting(true);
   }
 }
 
@@ -163,6 +156,14 @@ class Player {
       this.playerPos.y = windowHeight + this.radius;
     }
   }
+  collides(asteroid) {
+    let d = dist(this.playerPos.x, this.playerPos.y, asteroid.asterPos.x, asteroid.asterPos.y)
+    if (d < this.radius + asteroid.radius) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 // Bullet Object
@@ -188,11 +189,19 @@ class Bullet {
       asteroid.asterPos.x, asteroid.asterPos.y
     );
     if (d < asteroid.radius) {
-      console.log("HIT")
       return true;
     } else {
       return false;
     }
+  }
+  offscreen() {
+    if (this.bulPos.x > windowWidth || this.bulPos.x < 0) {
+      return true;
+    }
+    if (this.bulPos.y > windowHeight || this.bulPos.y < 0) {
+      return true;
+    }
+    return false;
   }
 }
 
@@ -205,9 +214,9 @@ class Asteroid {
       this.asterPos = createVector(
         random(windowWidth), random(windowHeight));
     }
-    if(radius){
+    if (radius) {
       this.radius = radius * 0.5
-    }else{
+    } else {
       this.radius = random(15, 30);
     }
     this.vel = p5.Vector.random2D();
