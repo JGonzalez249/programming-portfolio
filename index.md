@@ -16,4 +16,4 @@ Click and hold left mouse click to randomly generate shapes on the canvas
 - [Work 2](sketches/asteroids)
 
 Based on Asteroids, you can control your ship and destroy asteroids, however, for some reason the more you destroy, the more shapes that spawn. Try to see if your can keep your score for as long as possible.
-<iframe src="https://jgonzalez249.github.io/programming-portfolio/sketches/asteroids/"></iframe>
+<iframe src="https://jgonzalez249.github.io/programming-portfolio/sketches/asteroids/" width="800" height="600"></iframe>
