@@ -10,7 +10,7 @@
 
 - [Work 1](sketches/abstract/)
 
-Click and hold left mouse click to randomly generate shapes on the canvas
+Click and hold left mouse click to randomly generate shapes on the canvas, it will change a certain shapes HSB value on refresh.
 <iframe src="https://jgonzalez249.github.io/programming-portfolio/sketches/abstract/" width="710" height="400"></iframe>
 
 - [Work 2](sketches/asteroids)
