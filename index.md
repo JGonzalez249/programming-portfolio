@@ -21,4 +21,4 @@ Based on Asteroids, you can control your ship and destroy asteroids, however, fo
 - [Work 3](sketches/haikuGenerator)
 
 Using a combination of HTML, CSS, and JavaScript, I created a Haiku Generator with lines taken from around the web. When the user clicks on a line, it fades out and fades in a new line. The user can make thousands of combinations using this randomized generator.
-<iframe src="https://jgonzalez249.github.io/programming-portfolio/sketches/haikuGenerator/" width="800" height="400"></iframe>
+<iframe src="https://jgonzalez249.github.io/programming-portfolio/sketches/haikuGenerator/" width="800" height="425"></iframe>
