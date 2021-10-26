@@ -12,10 +12,19 @@ body {
     display: grid;
     place-items: center;
 }
+/* This is the directions for user to interact with processing*/
+#hint{
+    font-family:  'Ubuntu', Arial, Helvetica, sans-serif;
+    color: rgb(205, 175, 175);
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: bold;
+}
 
 /* This is for the text styles and padding for the poems*/
 #haiku {
-    padding: 5vh 0;
+    padding: 1vh 0;
     font-family: 'Zen Kurenaido', 'Ubuntu', Arial, Helvetica, sans-serif;
     color: azure;
     text-align: center;
