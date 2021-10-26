@@ -126,7 +126,7 @@ function lineClicked(event){
 // Text effect when clicked causes it to fade out
 // calls once per frame until opacity is 0
 function fadeOut(newLine, opacity){
-    opacity -= 0.01;
+    opacity -= 0.02;
     newLine.style['opacity'] = opacity;
     if(opacity > 0){
         requestAnimationFrame(function () {
@@ -141,7 +141,7 @@ function fadeOut(newLine, opacity){
 // Same as fadeOut but in reverse, calls once per frame until
 // opacity is 1
 function fadeIn(newLine, opacity){
-    opacity += 0.01;
+    opacity += 0.02;
     newLine.style['opacity'] = opacity;
     if(opacity < 1){
         requestAnimationFrame(function(){

@@ -1,19 +1,19 @@
 body {
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(55, 60, 70);
 }
 
-/* This is the rect for the Haikus*/
+/* This is the rectangle for the Haikus*/
 .poemRect {
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.7);
     width: 625px;
     height: 350px;
     margin:  0 auto;
-    border-radius: 15%;
+    border-radius: 10%;
     display: grid;
     place-items: center;
 }
 
-/* This is for the text styles for the poems*/
+/* This is for the text styles and padding for the poems*/
 #haiku {
     padding: 5vh 0;
     font-family: 'Zen Kurenaido', 'Ubuntu', Arial, Helvetica, sans-serif;
