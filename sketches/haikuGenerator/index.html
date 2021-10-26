@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="veiwport" width=device-width, initial-scale=1.0, user-scalable=0>
 
-        <title>Haiku Generator</title>
-        <!--CSS Stylesheet-->
-        <link rel="Stylesheet" type="text/css" href="style.css" />
-        <!--Web fonts from Google-->
-        <!--Main Font-->
-        <link href='https://fonts.googleapis.com/css?family=Zen Kurenaido' rel='Stylesheet'>
-        <!--Backup Font, if fail, uses system fonts-->
-        <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="veiwport" width=device-width, initial-scale=1.0, user-scalable=0>
 
-    <body>
-        <!--Section for Haiku in the body (reference in js and css)-->
-        <section id="haiku">
-            <div class="poemRect">
+    <title>Haiku Generator</title>
+    <!--CSS Stylesheet-->
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <!--Web fonts from Google-->
+    <!--Main Font-->
+    <link href='https://fonts.googleapis.com/css?family=Zen Kurenaido' rel='Stylesheet'>
+    <!--Backup Font, if fail, uses system fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='Stylesheet'>
+</head>
+
+<body>
+    <!--Made this to show user how to interact with program-->
+    <section id="hint">
+        <p id="hint-1"></p>
+    </section>
+    <!--Section for Haiku in the body (reference in js and css)-->
+    <section id="haiku">
+        <div class="poemRect">
             <p id="line-1"></p>
             <p id="line-2"></p>
             <p id="line-3"></p>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <script src="script.js"></script>
-    </body>
+    <script src="script.js"></script>
+</body>
 
 </html>

@@ -97,42 +97,50 @@ let sevenSyllableLine = [
     'and birds sing the welcoming'
 ];
 
+// What we want hint to say
+let hint = "Click line to make new line!"
 
 // Set lines using random function
 let line1 = random(fiveSyllableLine);
 let line2 = random(sevenSyllableLine);
 let line3 = random(fiveSyllableLine);
 
-// Gets the element ID from haiki section in the index.html (<p>)
+// Gets the element ID from haiki section in the index.html (<p id>)
 let firstLine = document.getElementById('line-1')
 let secondLine = document.getElementById('line-2')
 let thridLine = document.getElementById('line-3')
+
+// Gets the element ID from hint section in the index.html (<p id>)
+let hintLine = document.getElementById('hint-1')
 
 // Assign ID text to new lines
 firstLine.innerText = line1;
 secondLine.innerText = line2;
 thridLine.innerText = line3;
- 
+
+// Assign ID text for hint section
+hintLine.innerText = hint;
+
 // Event listener for when user clicks a line
 firstLine.addEventListener('click', lineClicked)
 secondLine.addEventListener('click', lineClicked)
 thridLine.addEventListener('click', lineClicked)
 
 // When a line is clicked, a new line is generated and fades out
-function lineClicked(event){
+function lineClicked(event) {
     fadeOut(event.target, 1);
 }
 
 // Text effect when clicked causes it to fade out
 // calls once per frame until opacity is 0
-function fadeOut(newLine, opacity){
+function fadeOut(newLine, opacity) {
     opacity -= 0.02;
     newLine.style['opacity'] = opacity;
-    if(opacity > 0){
+    if (opacity > 0) {
         requestAnimationFrame(function () {
-            fadeOut(newLine, opacity);  
+            fadeOut(newLine, opacity);
         });
-    } else{
+    } else {
         setNewLine(newLine);
         fadeIn(newLine, 0)
     }
@@ -140,11 +148,11 @@ function fadeOut(newLine, opacity){
 
 // Same as fadeOut but in reverse, calls once per frame until
 // opacity is 1
-function fadeIn(newLine, opacity){
+function fadeIn(newLine, opacity) {
     opacity += 0.02;
     newLine.style['opacity'] = opacity;
-    if(opacity < 1){
-        requestAnimationFrame(function(){
+    if (opacity < 1) {
+        requestAnimationFrame(function () {
             fadeIn(newLine, opacity);
         });
     }
@@ -152,16 +160,16 @@ function fadeIn(newLine, opacity){
 
 // Sets up function to change a line for a new one
 function setNewLine(newLine) {
-    if (newLine === firstLine || newLine === thridLine){
+    if (newLine === firstLine || newLine === thridLine) {
         newLine.innerText = random(fiveSyllableLine)
-    } else if (newLine === secondLine){
+    } else if (newLine === secondLine) {
         newLine.innerText = random(sevenSyllableLine)
     }
 }
 
 // Needed to make a random function since p5.js random
 // can't work without setup() function -- caused problems
-function random(array){
+function random(array) {
     let index = Math.floor(Math.random() * array.length);
     return array[index]
 }
