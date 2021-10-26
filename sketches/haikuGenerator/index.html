@@ -1,14 +1,30 @@
-<!DOCTYPE html><html lang="en"><head>
-    <script src="p5.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <script src="rita.js"></script>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="veiwport" width=device-width, initial-scale=1.0, user-scalable=0>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
+        <title>Haiku Generator</title>
+        <!--CSS Stylesheet-->
+        <link rel="Stylesheet" type="text/css" href="style.css" />
+        <!--Web fonts from Google-->
+        <!--Main Font-->
+        <link href='https://fonts.googleapis.com/css?family=Zen Kurenaido' rel='Stylesheet'>
+        <!--Backup Font, if fail, uses system fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    </head>
 
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-  
+    <body>
+        <!--Section for Haiku in the body (reference in js and css)-->
+        <section id="haiku">
+            <div class="poemRect">
+            <p id="line-1"></p>
+            <p id="line-2"></p>
+            <p id="line-3"></p>
+            </div>
+        </section>
 
-</body></html>
+        <script src="script.js"></script>
+    </body>
+
+</html>
